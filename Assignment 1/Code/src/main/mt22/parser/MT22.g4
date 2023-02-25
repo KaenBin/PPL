@@ -22,19 +22,16 @@ id_list2: COMMA ID id_list2 | ;
 vardecl2: ID vardecl2_2 exp SEMI;
 vardecl2_2: COMMA ID vardecl2_2 exp COMMA | (COLON var_type ASSIGN);
 // Function declarations
-funcdecl: ID COLON FUNCTION var_type paradecl body ;	
+funcdecl: ID COLON FUNCTION var_type paradecl block_stmt ;	
 paradecl: LRB para_list1 RRB;
 para_list1: para para_list2 | ;
 para_list2: COMMA para para_list2 | ;
 para: OUT? ID COLON var_type;
 
-body: block_stmt;
-// var_stmts: vardecl var_stmts| stmts var_stmts | ;
-
 stmts_list: stmts | block_stmt | (LCB stmts+ RCB);
 stmts:assign_stmt 
 	| if_stmt
-	// | for_stmt
+	| for_stmt
 	| while_stmt
 	| do_stmt
 	| break_stmt
@@ -46,10 +43,13 @@ assign_stmt: assign_lhs ASSIGN exp SEMI;
 assign_lhs: (ID | exp_ind);
 
 if_stmt: IF LRB exp RRB stmts_list (ELSE stmts_list)?;
-// for_stmt: SEMI;
+
+for_stmt: FOR LRB assign_lhs ASSIGN exp COMMA bool_expr COMMA ID exp_airth INTLIT RRB;
+
+
 while_stmt: WHILE LRB bool_expr RRB stmts | block_stmt;
 do_stmt: DO block_stmt WHILE bool_expr SEMI;
-bool_expr: exp_bool | exp_rela;
+bool_expr: ID exp_bool | exp_rela INTLIT;
 
 break_stmt: BREAK SEMI;
 continue_stmt: CONT SEMI;
