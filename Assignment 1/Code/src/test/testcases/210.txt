@@ -1,0 +1,1 @@
+array2D, array3D: array[2,3] of integer, array[3,5,1] of boolean;

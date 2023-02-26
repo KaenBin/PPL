@@ -234,8 +234,28 @@ class MT22Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by MT22Parser#array_type.
+    def visitArray_type(self, ctx:MT22Parser.Array_typeContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MT22Parser#int_list1.
+    def visitInt_list1(self, ctx:MT22Parser.Int_list1Context):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MT22Parser#int_list2.
+    def visitInt_list2(self, ctx:MT22Parser.Int_list2Context):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by MT22Parser#literals.
     def visitLiterals(self, ctx:MT22Parser.LiteralsContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MT22Parser#array_lit.
+    def visitArray_lit(self, ctx:MT22Parser.Array_litContext):
         return self.visitChildren(ctx)
 
 

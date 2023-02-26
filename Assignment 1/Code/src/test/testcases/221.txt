@@ -1,0 +1,13 @@
+c: integer = 103;
+        fact: function integer (i: integer) {
+            if (i == 0) return 1;
+            else return i * fact(i - 1);
+        }
+        inc: function void(out i: integer, delta: integer) {
+            i = i + delta;
+        }
+        main: function void() {
+            delta: integer = fact(3);
+            inc(c, delta);
+            printInteger(c);
+        }

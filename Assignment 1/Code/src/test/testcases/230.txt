@@ -1,0 +1,9 @@
+
+        myFunc: function string (inhirit a: string, b: string) {
+            return a :: b;
+        }
+        main: function void() {
+            delta: integer = fact(3);
+            inc(c, delta);
+            printInteger(c);
+        }

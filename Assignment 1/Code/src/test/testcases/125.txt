@@ -1,0 +1,1 @@
+1_234.567//considered as 1234.567 by scanner
