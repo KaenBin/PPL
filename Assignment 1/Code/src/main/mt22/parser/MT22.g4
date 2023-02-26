@@ -10,7 +10,7 @@ options{
 
 program: (vardecl | funcdecl)+ EOF ;
 
-var_type: INTEGER | FLOAT | BOOLEAN | STRING | VOID | AUTO;
+var_type: INTEGER | FLOAT | BOOLEAN | STRING | VOID | AUTO | array_type;
 
 // Variable declarations
 vardecl: vardecl1 | vardecl2 | vardecl3;
@@ -41,19 +41,20 @@ stmts:assign_stmt
 	| break_stmt
 	| continue_stmt
 	| return_stmt
-	| call_stmt;
+	| call_stmt
+	| functions;
 
 assign_stmt: assign_lhs ASSIGN exp SEMI;
 assign_lhs: (ID | exp_ind);
 
 if_stmt: IF LRB exp RRB stmts_list (ELSE stmts_list)?;
 
-for_stmt: FOR LRB assign_lhs ASSIGN exp COMMA bool_expr COMMA ID exp_airth INTLIT RRB;
+for_stmt: FOR LRB assign_lhs ASSIGN exp COMMA exp COMMA exp RRB;
 
 
-while_stmt: WHILE LRB bool_expr RRB stmts | block_stmt;
-do_stmt: DO block_stmt WHILE bool_expr SEMI;
-bool_expr: ID exp_bool | exp_rela INTLIT;
+while_stmt: WHILE LRB exp RRB stmts | block_stmt;
+do_stmt: DO block_stmt WHILE LRB exp RRB;
+// bool_expr: ID (exp_bool | exp_rela) INTLIT;
 
 break_stmt: BREAK SEMI;
 continue_stmt: CONT SEMI;
@@ -70,11 +71,11 @@ block_body: (stmts | vardecl)*;
 
 // Expressions
 
-exp_airth: ADDOP | MINUSOP | MULOP | DIVOP | MODOP;
-exp_bool: NEGAOP | CONJOP | DISJOP;
-exp_str: CONCAT;
-exp_rela: EQUALOP | DIFOP | LESSOP | LESSEQOP | GREATOP | GREATEQOP;
-exp_ind: ID expression_list1;
+// exp_airth: ADDOP | MINUSOP | MULOP | DIVOP | MODOP;
+// exp_bool: NEGAOP | CONJOP | DISJOP;
+// exp_str: CONCAT;
+// exp_rela: EQUALOP | DIFOP | LESSOP | LESSEQOP | GREATOP | GREATEQOP;
+exp_ind: ID LSB expression_list1 RSB;
 
 exp: exp1 CONCAT exp1 | exp1;
 exp1: exp2 (EQUALOP | DIFOP | LESSOP | GREATOP | LESSEQOP | GREATEQOP) exp2 | exp2;
@@ -83,7 +84,8 @@ exp3: exp3 (ADDOP | MINUSOP) exp4 | exp4;
 exp4: exp4 (MULOP | DIVOP | MODOP) exp5 | exp5;
 exp5: NEGAOP exp5 | exp6;
 exp6: MINUSOP exp6 | exp7;
-exp7: COMMA exp7 | literals | var_type | ID | call_stmt_no_semi;
+exp7: operands | (LSB (expression_list1|exp_ind) RSB);
+operands: literals | var_type | ID | call_stmt_no_semi | (LRB exp RRB);
 
 // 4. Type system and values
 array_type: ARRAY LSB int_list1 RSB OF var_type;
@@ -172,27 +174,27 @@ functions: 	readint_func
 		|	supers
 		|	preventdef;
 
-readint_func: READINT;
-readfloat_func: READFLOAT;
-readbool_func: READBOOL;
-readstr_func: READSTR;
+readint_func: READINT LRB RRB;
+readfloat_func: READFLOAT LRB RRB;
+readbool_func: READBOOL LRB RRB;
+readstr_func: READSTR LRB RRB;
 printint_func: PRINTINT LRB (ID| INTLIT) RRB;
 printfloat_func: WRITEFLOAT LRB (ID | FLOATLIT) RRB;
 printbool_func: PRINTBOOL LRB (ID | BOOL) RRB;
 printstr_func: PRINTSTR LRB (ID | STRINGLIT) RRB;
 supers: SUPERS LRB expression_list1 RRB;
-preventdef: PREVENTDEF SEMI;
+preventdef: PREVENTDEF LRB RRB;
 
-READINT:'readInteger()';
+READINT:'readInteger';
 PRINTINT:'printInteger';
-READFLOAT:'readFloat()';
+READFLOAT:'readFloat';
 WRITEFLOAT:'writeFloat';
-READBOOL: 'readBoolean()';
+READBOOL: 'readBoolean';
 PRINTBOOL:'printBoolean';
-READSTR: 'readString()';
+READSTR: 'readString';
 PRINTSTR:'printString';
 SUPERS:'super';
-PREVENTDEF:'preventDefault()';
+PREVENTDEF:'preventDefault';
 
 // ID
 ID: [a-zA-Z_][a-zA-Z0-9_]*;

@@ -1,0 +1,10 @@
+
+        main: function void() {
+            // Test do statement
+            i = 1000;
+            do {
+                printInteger(i);
+                i = i / 3;
+            }
+            while (i >= 0)
+        }

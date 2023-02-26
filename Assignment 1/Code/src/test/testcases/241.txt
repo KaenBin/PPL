@@ -1,0 +1,10 @@
+
+        main: function void() {
+            // Test block statement
+            r, s: integer;
+            r = 5.0;
+            s = r * r * myPI;
+            a, b: array [51] of integer;
+            a[2] = s;
+            b[34] = r;
+        }

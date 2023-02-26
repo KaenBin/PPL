@@ -124,11 +124,6 @@ class MT22Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by MT22Parser#bool_expr.
-    def visitBool_expr(self, ctx:MT22Parser.Bool_exprContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by MT22Parser#break_stmt.
     def visitBreak_stmt(self, ctx:MT22Parser.Break_stmtContext):
         return self.visitChildren(ctx)
@@ -179,26 +174,6 @@ class MT22Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by MT22Parser#exp_airth.
-    def visitExp_airth(self, ctx:MT22Parser.Exp_airthContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by MT22Parser#exp_bool.
-    def visitExp_bool(self, ctx:MT22Parser.Exp_boolContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by MT22Parser#exp_str.
-    def visitExp_str(self, ctx:MT22Parser.Exp_strContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by MT22Parser#exp_rela.
-    def visitExp_rela(self, ctx:MT22Parser.Exp_relaContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by MT22Parser#exp_ind.
     def visitExp_ind(self, ctx:MT22Parser.Exp_indContext):
         return self.visitChildren(ctx)
@@ -241,6 +216,11 @@ class MT22Visitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by MT22Parser#exp7.
     def visitExp7(self, ctx:MT22Parser.Exp7Context):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MT22Parser#operands.
+    def visitOperands(self, ctx:MT22Parser.OperandsContext):
         return self.visitChildren(ctx)
 
 

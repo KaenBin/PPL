@@ -1,0 +1,6 @@
+
+        main: function void() {
+            // Test if statement
+            if (true) output = 1+2*(3-4%5*(-6));
+            printInteger(output);
+        }

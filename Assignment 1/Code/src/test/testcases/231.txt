@@ -1,0 +1,9 @@
+
+        main: function void() {
+            // Test assignment statement
+            a, b, c, d: auto;
+            a = 5;
+            b = true;
+            c = "Hello";
+            d = 4.5;
+        }

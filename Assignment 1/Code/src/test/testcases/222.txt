@@ -3,7 +3,6 @@
             return a :: b;
         }
         main: function void() {
-            delta: integer = fact(3);
-            inc(c, delta);
-            printInteger(c);
+            c = func("Hello","World");
+            printString(c);
         }

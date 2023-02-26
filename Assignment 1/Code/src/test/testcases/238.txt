@@ -1,0 +1,11 @@
+
+        main: function void() {
+            // Test break statement
+            i = 1000;
+            do {
+                printInteger(i);
+                i = i / 6;
+                continue;
+            }
+            while (i >= 0)
+        }
