@@ -1,0 +1,20 @@
+
+        main: function void() {
+            n: integer;
+            for(i=1, i <= n, i + 1)    
+            {    
+                for(j=1, j <=n - i, j + 1)    
+                {    
+                    printString(" ");    
+                }    
+                for(k=1, k <= i, k + 1)    
+                {    
+                    printInteger(k);    
+                }    
+                for(l=i-1, l >= 1, l - 1)    
+                {    
+                    printInteger(l);    
+                }    
+                printString("\n");    
+            }    
+        }

@@ -311,3 +311,110 @@ class ParserSuite(unittest.TestCase):
         }"""
         expect = "successful"
         self.assertTrue(TestParser.test(input, expect, 241))
+
+    def test_fibonacci(self):
+        input = """
+        fibonacci: function integer(n: integer) {
+            if (n <= 0) return 0;
+            if (n == 1) return 1;
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+        main: function void() {
+            printInteger(fibonacci(5));
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 242))
+
+    def test_check(self):
+        input = """
+
+        main: function void() {
+            for(i=1, i <= n, i + 1)    
+                if (i <= 5) printInteger(i);
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 243))
+
+    def test_sum(self):
+        input = """
+        sum: function integer(a: integer, b: integer) {
+            return a + b;
+        }
+        main: function void() {
+            printInteger(sum(4, 9));
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 244))
+
+    def test_swap(self):
+        input = """
+        swap: function void(a: integer, b: integer) {
+            a = a + b;
+            b = a - b;
+            a = a - b;
+        }
+        main: function void() {
+            a, b: integer = 4, 9;
+            swap(a, b);
+            printInteger(a);
+            printInteger(b);
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 245))
+
+    def test_print_Hello(self):
+        input = """
+        main: function void() {
+            if(printString("hello world")){}    
+            return;  
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 246))
+
+    def test_print_triangle(self):
+        input = """
+        main: function void() {
+            n: integer;
+            for(i=1, i <= n, i + 1)    
+            {    
+                for(j=1, j <=n - i, j + 1)    
+                {    
+                    printString(" ");    
+                }    
+                for(k=1, k <= i, k + 1)    
+                {    
+                    printInteger(k);    
+                }    
+                for(l=i-1, l >= 1, l - 1)    
+                {    
+                    printInteger(l);    
+                }    
+                printString("\\n");    
+            }    
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 247))
+
+    def test_print_triangle(self):
+        input = """
+        main: function void() {
+            array
+            for(i=1, i <= n, i + 1)    
+            {    
+                for(j=1, j <=n - i, j + 1)    
+                {    
+                    printString(" ");    
+                }    
+                for(k=1, k <= i, k + 1)    
+                {    
+                    printInteger(k);    
+                }    
+                for(l=i-1, l >= 1, l - 1)    
+                {    
+                    printInteger(l);    
+                }    
+                printString("\\n");    
+            }    
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 247))

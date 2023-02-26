@@ -146,3 +146,94 @@ class LexerSuite(unittest.TestCase):
         self.assertTrue(TestLexer.test(""" "\\n \\b \\t\\f" """, "\\n \\b \\t\\f,<EOF>", 159))
     def test_string12(self):
         self.assertTrue(TestLexer.test(""" \\n \\b \\t\\f """, "Error Token \\", 160))
+
+    def test_random1(self):
+        self.assertTrue(TestLexer.test("ads = rqew / vxc \"string test\" ",
+                                       "ads,=,rqew,/,vxc,string test,<EOF>",161))
+    def test_random2(self):
+        self.assertTrue(TestLexer.test("fact: function integer (^n:integer) {\n if(n==0) return 1;\n else return n * fact(n-1);\n}",
+                                       "fact,:,function,integer,(,Error Token ^",162))
+    def test_random3(self): 
+        self.assertTrue(TestLexer.test("return readBoolean();",
+                                       "return,readBoolean,(,),;,<EOF>",163))
+    def test_random4(self):
+        self.assertTrue(TestLexer.test("a: int = 50; while (a >= 8) \n a = a - 1;",
+                                       "a,:,int,=,50,;,while,(,a,>=,8,),a,=,a,-,1,;,<EOF>",164))
+    def test_random5(self):
+        self.assertTrue(TestLexer.test("a: float = 134.41; \n b: float = 324.13; \n printFloat(a / b);",
+                                       "a,:,float,=,134.41,;,b,:,float,=,324.13,;,printFloat,(,a,/,b,),;,<EOF>",165))
+    def test_random6(self):
+        self.assertTrue(TestLexer.test("aodiswVASOD: auto = 42533.14E-4102",
+                                       "aodiswVASOD,:,auto,=,42533.14E-4102,<EOF>",166))
+    def test_random7(self):
+        self.assertTrue(TestLexer.test("Arr3D: array[4, 9, 4] of integer;",
+                                       "Arr3D,:,array,[,4,,,9,,,4,],of,integer,;,<EOF>",167))
+    def test_random8(self):
+        self.assertTrue(TestLexer.test("Arr2D: array[1,3] of integer = {{4,7,1}, {4, 7, 2}};",
+                                       "Arr2D,:,array,[,1,,,3,],of,integer,=,{,{,4,,,7,,,1,},,,{,4,,,7,,,2,},},;,<EOF>",168))
+    def test_random9(self):
+        self.assertTrue(TestLexer.test("sum: function integer (out n : integer , m : integer)",
+                                       "sum,:,function,integer,(,out,n,:,integer,,,m,:,integer,),<EOF>",169))
+    def test_random10(self):
+        self.assertTrue(TestLexer.test("main: function void () {}",
+                                       "main,:,function,void,(,),{,},<EOF>",170)) 
+    def test_random11(self):
+        self.assertTrue(TestLexer.test(""" "integer"::"boolean" "float"&&"string" """, "integer,::,boolean,float,&&,string,<EOF>", 171))
+    def test_random12(self):
+        self.assertTrue(TestLexer.test(" 1e+2+1.0+1e-10+1.13e4 ", "1e+2,+,1.0,+,1e-10,+,1.13e4,<EOF>", 172))
+    def test_random13(self):
+        self.assertTrue(TestLexer.test("!a+b-c*d/x%y&&z||1!=1==1", "!,a,+,b,-,c,*,d,/,x,%,y,&&,z,||,1,!=,1,==,1,<EOF>", 173))
+    def test_random14(self):
+        self.assertTrue(TestLexer.test("Var: a[] ;", "Var,:,a,[,],;,<EOF>", 174))
+    def test_random15(self):
+        self.assertTrue(TestLexer.test("""if (he > 5) {return he;}""", "if,(,he,>,5,),{,return,he,;,},<EOF>", 175))
+    def test_random16(self):
+        self.assertTrue(TestLexer.test(""" {"Phan Mai Tan Loi", "2052158", "C20KHM1"} """, "{,Phan Mai Tan Loi,,,2052158,,,C20KHM1,},<EOF>", 176))
+    def test_random17(self):
+        self.assertTrue(TestLexer.test("Python", "Python,<EOF>", 177))
+    def test_random18(self):
+        self.assertTrue(TestLexer.test("lexical-analysis-handout", "lexical,-,analysis,-,handout,<EOF>", 178))
+    def test_random19(self):
+        self.assertTrue(TestLexer.test("[CC04] Syntax Programming", "[,CC04,],Syntax,Programming,<EOF>", 179))
+    def test_random20(self):
+        self.assertTrue(TestLexer.test("OOP and FP Programming", "OOP,and,FP,Programming,<EOF>", 180))
+    def test_random21(self):
+        self.assertTrue(TestLexer.test(""" "qwea adswq """, "Unclosed String: qwea adswq ", 181))
+    def test_random22(self):
+        self.assertTrue(TestLexer.test("4566>34123", "4566,>,34123,<EOF>", 182))
+    def test_random23(self):
+        self.assertTrue(TestLexer.test("1234234_981283", "1234234981283,<EOF>", 183))
+    def test_random24(self):
+        self.assertTrue(TestLexer.test("//asdwqd\n /* vASDUHKJxcjkzh */", "<EOF>", 184))
+    def test_random25(self):
+        self.assertTrue(TestLexer.test("hello /*world*/", "hello,<EOF>", 185))
+    def test_random26(self):
+        self.assertTrue(TestLexer.test("czxcs~wdqa", "czxcs,Error Token ~", 186))
+    def test_random27(self):
+        self.assertTrue(TestLexer.test("qweas+bg3edw-*asca'a/<>mdks", "qweas,+,bg3edw,-,*,asca,Error Token '", 187))
+    def test_random28(self):
+        self.assertTrue(TestLexer.test("haidilao#", "haidilao,Error Token #", 188))
+    def test_random29(self):
+        self.assertTrue(TestLexer.test(";FAWCFSvs~gb", ";,FAWCFSvs,Error Token ~", 189))
+    def test_random30(self):
+        self.assertTrue(TestLexer.test("asdv^^ba", "asdv,Error Token ^", 190))
+    def test_random31(self):
+        self.assertTrue(TestLexer.test("awda))vsdv|213", "awda,),),vsdv,Error Token |", 191))
+    def test_random32(self):
+        self.assertTrue(TestLexer.test("ASDdasdq { SADQ @ asbrbv", "ASDdasdq,{,SADQ,Error Token @", 192))
+    def test_random33(self):
+        self.assertTrue(TestLexer.test("asdv&asdq:", "asdv,Error Token &", 193))
+    def test_random34(self):
+        self.assertTrue(TestLexer.test("zxcsa - 213 asd2S + 213 ds ) rgq < ) ?0gg", "zxcsa,-,213,asd2S,+,213,ds,),rgq,<,),Error Token ?", 194))
+    def test_random35(self):
+        self.assertTrue(TestLexer.test("asdqwd`", "asdqwd,Error Token `", 195))
+    def test_random36(self):
+        self.assertTrue(TestLexer.test("No more", "No,more,<EOF>", 196))
+    def test_random37(self):
+        self.assertTrue(TestLexer.test(""" "Uuhcn KK""", "Unclosed String: Uuhcn KK", 197))
+    def test_random38(self):
+        self.assertTrue(TestLexer.test(""" "asdsbfvW*`~.~+ASDWA_WD """, "Unclosed String: asdsbfvW*`~.~+ASDWA_WD ", 198))
+    def test_random39(self):
+        self.assertTrue(TestLexer.test(""" " bsdv\k" """, " bsdv\k,<EOF>", 199))
+    def test_random40(self):
+        self.assertTrue(TestLexer.test(""" "qweas\wb" """, "qweas\wb,<EOF>", 200))
