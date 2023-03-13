@@ -1,0 +1,18 @@
+
+        draw: function integer(){
+
+            printString("Enter a positive integer: ");
+            num: integer = readInteger();
+
+            // run a loop from 1 to 10
+            // print the multiplication table
+            for (i = 1, i <= 10, i+1) {
+                printInt(n);
+                printString(" * ");
+                printInt(i);
+                printString(" = ");
+                n = n*i;
+                printInt(n);
+            }
+        }
+        

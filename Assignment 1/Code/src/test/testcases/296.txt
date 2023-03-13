@@ -1,0 +1,13 @@
+
+        main: function void(){
+            n = readInt();
+            if ( n % 2 == 0){
+                printInt(n);
+                printString(" is even!");
+            }
+            else{
+                printInt(n);
+                printString(" is odd!");
+            }
+        }
+        

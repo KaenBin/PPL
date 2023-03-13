@@ -1,0 +1,1 @@
+func: function integer() { a: integer = 124; b: float = 5345.17; printInteger(a); writeFloat(b); return 0; }

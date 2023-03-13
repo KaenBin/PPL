@@ -1,0 +1,7 @@
+
+         main: function void()
+        {
+            for(i = 0, i < 14, i + 2) 
+            {   if(x = 10) break; 
+                else printInteger(i);}
+        }

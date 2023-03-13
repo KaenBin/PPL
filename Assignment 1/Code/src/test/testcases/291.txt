@@ -1,0 +1,5 @@
+
+         main: function void()
+        {
+            /* I am HCMUT K20 */
+        }

@@ -1,0 +1,1 @@
+func: function integer() { a, b: integer = 7; return (a &&>= a); }

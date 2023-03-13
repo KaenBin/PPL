@@ -1,0 +1,5 @@
+
+         main: function void()
+        {
+            if (if (true) return true) printString("Hello everyone");
+        }

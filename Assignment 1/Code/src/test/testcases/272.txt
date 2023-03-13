@@ -1,0 +1,6 @@
+
+         main: function void()
+        {
+            for(i = 0, i < 14, i + 2) 
+                printInteger(i % 3);
+        }

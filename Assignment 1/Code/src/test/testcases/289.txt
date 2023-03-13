@@ -1,0 +1,5 @@
+
+         main: function void()
+        {
+            printFloat(987+654*321/readFloat());
+        }

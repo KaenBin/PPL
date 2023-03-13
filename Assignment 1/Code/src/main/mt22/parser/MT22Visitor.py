@@ -99,6 +99,11 @@ class MT22Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by MT22Parser#assign_stmt2.
+    def visitAssign_stmt2(self, ctx:MT22Parser.Assign_stmt2Context):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by MT22Parser#assign_lhs.
     def visitAssign_lhs(self, ctx:MT22Parser.Assign_lhsContext):
         return self.visitChildren(ctx)
@@ -114,6 +119,11 @@ class MT22Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by MT22Parser#for_stmt2.
+    def visitFor_stmt2(self, ctx:MT22Parser.For_stmt2Context):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by MT22Parser#while_stmt.
     def visitWhile_stmt(self, ctx:MT22Parser.While_stmtContext):
         return self.visitChildren(ctx)
@@ -121,6 +131,11 @@ class MT22Visitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by MT22Parser#do_stmt.
     def visitDo_stmt(self, ctx:MT22Parser.Do_stmtContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MT22Parser#bool_expr.
+    def visitBool_expr(self, ctx:MT22Parser.Bool_exprContext):
         return self.visitChildren(ctx)
 
 
@@ -171,6 +186,26 @@ class MT22Visitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by MT22Parser#block_body.
     def visitBlock_body(self, ctx:MT22Parser.Block_bodyContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MT22Parser#exp_airth.
+    def visitExp_airth(self, ctx:MT22Parser.Exp_airthContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MT22Parser#exp_bool.
+    def visitExp_bool(self, ctx:MT22Parser.Exp_boolContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MT22Parser#exp_str.
+    def visitExp_str(self, ctx:MT22Parser.Exp_strContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MT22Parser#exp_rela.
+    def visitExp_rela(self, ctx:MT22Parser.Exp_relaContext):
         return self.visitChildren(ctx)
 
 

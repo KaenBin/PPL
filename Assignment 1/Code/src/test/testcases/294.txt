@@ -1,0 +1,5 @@
+
+         main: function void()
+        {
+            sentence: string = "Antlr4 is the best tool";
+        }

@@ -9,11 +9,11 @@
                 }    
                 for(k=1, k <= i, k + 1)    
                 {    
-                    printInteger(k);    
+                    printString(k);    
                 }    
                 for(l=i-1, l >= 1, l - 1)    
                 {    
-                    printInteger(l);    
+                    printString(l);    
                 }    
                 printString("\n");    
             }    

@@ -50,6 +50,51 @@ class ParserSuite(unittest.TestCase):
         expect = "Error on line 1 col 0: integer"
         self.assertTrue(TestParser.test(input, expect, 211))
 
+    def test_var_decl11(self):
+        input = """main: function void() { printInteger(5); }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 212))
+
+    def test_var_decl12(self):
+        input = """main: function void() { aabc: void; }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 213))
+
+    def test_var_decl13(self):
+        input = """main: function void() { bool: boolean; }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 214))
+
+    def test_var_decl14(self):
+        input = """main: function void() { b: auto; }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 215))
+        
+    def test_var_decl15(self):
+        input = """main: function void() { A: integer = 145; }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 216))
+
+    def test_var_decl16(self):
+        input = """main: function void() { cA: integer = 123+21*41; }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 217))
+
+    def test_var_decl17(self):
+        input = """main: function void() { BXA: integer = 123+456*789/readInteger(); }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 218))
+                        
+    def test_var_decl18(self):
+        input = """main: function void() { 32r8: auto = "Hello world"; }"""
+        expect = "Error on line 1 col 24: 32"
+        self.assertTrue(TestParser.test(input, expect, 219))
+
+    def test_var_decl19(self):
+        input = """main: function void() { 0_1239: float = 1.45; }"""
+        expect = "Error on line 1 col 24: 0"
+        self.assertTrue(TestParser.test(input, expect, 220))
+
     def test_func_decl1(self):
         input = """c: integer = 103;
         fact: function integer (i: integer) {
@@ -371,7 +416,7 @@ class ParserSuite(unittest.TestCase):
         expect = "successful"
         self.assertTrue(TestParser.test(input, expect, 246))
 
-    def test_print_triangle(self):
+    def test_print_triangle_of_alphabets(self):
         input = """
         main: function void() {
             n: integer;
@@ -383,11 +428,11 @@ class ParserSuite(unittest.TestCase):
                 }    
                 for(k=1, k <= i, k + 1)    
                 {    
-                    printInteger(k);    
+                    printString(k);    
                 }    
                 for(l=i-1, l >= 1, l - 1)    
                 {    
-                    printInteger(l);    
+                    printString(l);    
                 }    
                 printString("\\n");    
             }    
@@ -395,10 +440,9 @@ class ParserSuite(unittest.TestCase):
         expect = "successful"
         self.assertTrue(TestParser.test(input, expect, 247))
 
-    def test_print_triangle(self):
+    def test_print_triangle_of_digits(self):
         input = """
         main: function void() {
-            array
             for(i=1, i <= n, i + 1)    
             {    
                 for(j=1, j <=n - i, j + 1)    
@@ -417,4 +461,438 @@ class ParserSuite(unittest.TestCase):
             }    
         }"""
         expect = "successful"
-        self.assertTrue(TestParser.test(input, expect, 247))
+        self.assertTrue(TestParser.test(input, expect, 248))
+
+    def test_random1(self):
+        input = """func: function integer() { a: integer = 124; b: float = 5345.17; printInteger(a); writeFloat(b); return 0; }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 249))
+
+    def test_random2(self):
+        input = """func: function integer() { c, d: integer = 3, 1; 0reurawn (c < d); }"""
+        expect = "Error on line 1 col 49: 0"
+        self.assertTrue(TestParser.test(input, expect, 250))
+
+    def test_random3(self):
+        input = """func: function integer() { a, b: integer = 7; return (a &&>= a); }"""
+        expect = "Error on line 1 col 44: ;"
+        self.assertTrue(TestParser.test(input, expect, 251))
+
+    def test_random4(self):
+        input = """func: function integer() { a, b: integer = 41, 513; a = a 12 b; return (a > b); }"""
+        expect = "Error on line 1 col 58: 12"
+        self.assertTrue(TestParser.test(input, expect, 252))
+
+    def test_random5(self):
+        input = """main: function integer() {}}"""
+        expect = "Error on line 1 col 27: }"
+        self.assertTrue(TestParser.test(input, expect, 253))
+
+    def test_random6(self):
+        input = """
+        main: function void() {
+            count: integer = 0; 
+            for(i == 13, i < 230, i * 2) 
+                {count = count + i;}
+            printInteger(count);
+        }"""
+        expect = "Error on line 4 col 18: =="
+        self.assertTrue(TestParser.test(input, expect, 254))
+
+    def test_random7(self):
+        input = """random: function auto() { return %41; }"""
+        expect = "Error on line 1 col 33: %"
+        self.assertTrue(TestParser.test(input, expect, 255))
+
+    def test_random8(self):
+        input = """checkFloat: funcqwion boolean(num: integer) { if(num > 0) return true; else return false;}"""
+        expect = "Error on line 1 col 12: funcqwion"
+        self.assertTrue(TestParser.test(input, expect, 256))
+
+    def test_random9(self):
+        input = """ewaf: integer = 3, 5, 2;"""
+        expect = "Error on line 1 col 17: ,"
+        self.assertTrue(TestParser.test(input, expect, 257))
+
+    def test_random10(self):
+        input = """
+        fact: function integer (n: int) 
+        {   if (n == 0) return 1; 
+            else return n * fact(n - 1);} 
+        main: function void()
+        {
+            a: integer = fact(352); 
+            printInteger(a);
+        }"""
+        expect = "Error on line 2 col 35: int"
+        self.assertTrue(TestParser.test(input, expect, 258))
+
+    def test_random11(self):
+        input = """
+         main: function void()
+        {
+            for(i = 0, i < 14, i + 2) 
+            {   if(x = 10) break; 
+                else printInteger(i);}
+        }"""
+        expect = "Error on line 5 col 21: ="
+        self.assertTrue(TestParser.test(input, expect, 259))
+
+    def test_random12(self):
+        input = """
+        main: function void()
+        {
+            x: integer = 50; do { x = x - 1;  while (x > 0);
+        }"""
+        expect = "Error on line 4 col 59: ;"
+        self.assertTrue(TestParser.test(input, expect, 260))
+
+    def test_random13(self):
+        input = """
+        main: function void()
+        {
+            for(i = 0, i < 6 i + 1) 
+                {printInteger(i);}
+        }"""
+        expect = "Error on line 4 col 29: i"
+        self.assertTrue(TestParser.test(input, expect, 261))
+
+    def test_random14(self):
+        input = """printHello: function void() {printString"HelloWorld");}"""
+        expect = "Error on line 1 col 40: HelloWorld"
+        self.assertTrue(TestParser.test(input, expect, 262))
+
+    def test_random15(self):
+        input = """min: function float a: float, b: float) { if(a <= b) return a; else return b; }"""
+        expect = "Error on line 1 col 20: a"
+        self.assertTrue(TestParser.test(input, expect, 263))
+
+    def test_random16(self):
+        input = """main: function void() {{}"""
+        expect = "Error on line 1 col 23: {"
+        self.assertTrue(TestParser.test(input, expect, 264))
+
+    def test_random17(self):
+        input = """max: function integer(c: integer, d: integer) 
+                    {   if( >= d) return c; 
+                        else return d; }"""
+        expect = "Error on line 2 col 28: >="
+        self.assertTrue(TestParser.test(input, expect, 265))
+
+    def test_random18(self):
+        input = """add: function floatt(a: float, b: float) { return a + b; }"""
+        expect = "Error on line 1 col 14: floatt"
+        self.assertTrue(TestParser.test(input, expect, 266))
+
+    def test_random19(self):
+        input = """main: function void() { aB, A, E, e: integer = 1, 2, 3, 4, 8; }"""
+        expect = "Error on line 1 col 57: ,"
+        self.assertTrue(TestParser.test(input, expect, 267))
+
+    def test_random20(self):
+        input = """main: function void() { a1, a2, a4, 2a, vba: integer = 1, 2, 3; }"""
+        expect = "Error on line 1 col 36: 2"
+        self.assertTrue(TestParser.test(input, expect, 268))
+
+    def test_random21(self):
+        input = """main: function void() { a, b, c: bool = 1, 2, 3, 4, 5; }"""
+        expect = "Error on line 1 col 33: bool"
+        self.assertTrue(TestParser.test(input, expect, 269))
+        
+    def test_random22(self):
+        input = """main: function void() { a, b, c, d, e,f ,g , h, q: auto = 1, 3, 4, 5, 12; }"""
+        expect = "Error on line 1 col 72: ;"
+        self.assertTrue(TestParser.test(input, expect, 270))
+
+    def test_random23(self):
+        input = """main: function void() { a: integer, b: float;; }"""
+        expect = "Error on line 1 col 34: ,"
+        self.assertTrue(TestParser.test(input, expect, 271))
+
+    def test_random24(self):
+        input = """
+         main: function void()
+        {
+            for(i = 0, i < 14, i + 2) 
+                printInteger(i % 3);
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 272))
+
+    def test_random25(self):
+        input = """
+         main: function void()
+        {
+            for(i = 0, i < 4, i + 2) 
+            {
+                printInteger(readInteger());
+            }
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 273))
+
+    def test_random26(self):
+        input = """
+         main: function void()
+        {
+            x: integer = 1;
+            while (x != 0)
+                x = readInteger();
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 274))
+
+    def test_random27(self):
+        input = """
+         main: function void()
+        {
+            x: integer;
+            do {
+                x = readInteger();
+            } while (x != 0)
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 275))
+
+    def test_random28(self):
+        input = """
+         main: function void()
+        {
+            printString("Phan Mai Tan Loi");
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 276))
+
+    def test_random29(self):
+        input = """
+         main: function void()
+        {
+            x: boolean;
+            x = readBoolean();
+            if (!x) return "False";
+            else return "True";;;
+        }"""
+        expect = "Error on line 7 col 31: ;"
+        self.assertTrue(TestParser.test(input, expect, 277))
+
+    def test_random30(self):
+        input = """
+        main: function void()
+        {
+            x: boolean;
+            x = readBoolean();
+            if (x) return return "True";
+            else return "False";
+        }"""
+        expect = "Error on line 6 col 26: return"
+        self.assertTrue(TestParser.test(input, expect, 278))
+
+    def test_random31(self):
+        input = """
+         main: function void()
+        {
+            printInteger(31*(13-42+readInteger()));
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 279))
+
+    def test_random32(self):
+        input = """
+         main: function void()
+        {
+            a: integer = 9; 
+            b: float = 51.67; 
+            printInteger(a); 
+            printFloat(b);
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 280))
+
+    def test_random33(self):
+        input = """main: function void() { printInteger(5); }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 281))
+
+    def test_random34(self):
+        input = """main: function void() { aabc: void; }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 282))
+
+    def test_random35(self):
+        input = """main: function void() { bool: boolean; }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 283))
+
+    def test_random36(self):
+        input = """main: function void() { b: auto; }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 284))
+        
+    def test_random37(self):
+        input = """main: function void() { A: integer = 145; }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 285))
+
+    def test_random38(self):
+        input = """
+         main: function void()
+        {
+            a: integer = 9; 
+            b: float = 51.67; 
+            printInteger(a); 
+            printFloat(b);
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 286))
+
+    def test_random39(self):
+        input = """
+         main: function void()
+        {
+            printSring(readString()::"EOF");
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 287))
+
+    def test_random40(self):
+        input = """
+         main: function void()
+        {
+            printBoolean(!readBoolean());
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 288))
+
+    def test_random41(self):
+        input = """
+         main: function void()
+        {
+            printFloat(987+654*321/readFloat());
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 289))
+
+    def test_random42(self):
+        input = """
+         main: function void()
+        {
+            preventDefault();
+            preventDefault();
+            preventDefault();
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 290))
+
+    def test_random43(self):
+        input = """
+         main: function void()
+        {
+            /* I am HCMUT K20 */
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 291))
+
+    def test_random44(self):
+        input = """
+         main: function void()
+        {
+            // Please give me good grade
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 292))
+
+    def test_random45(self):
+        input = """
+         main: function void()
+        {
+            preventDefault()
+            preventDefault()
+            preventDefault()
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 293))
+
+    def test_random46(self):
+        input = """
+         main: function void()
+        {
+            sentence: string = "Antlr4 is the best tool";
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 294))
+
+    def test_random47(self):
+        input = """
+         main: function void()
+        {
+            sentence: string = "Visual Studio Code is the best IDE";
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 295))
+        
+    def test_random48(self):
+        input = """
+        main: function void(){
+            n = readInt();
+            if ( n % 2 == 0){
+                printInt(n);
+                printString(" is even!");
+            }
+            else{
+                printInt(n);
+                printString(" is odd!");
+            }
+        }
+        """
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 296))  
+        
+    def test_random49(self):
+        input = """
+         main: function void()
+        {
+            if (if (true) return true) printString("Hello everyone");
+        }"""
+        expect = "Error on line 4 col 16: if"
+        self.assertTrue(TestParser.test(input, expect, 297))    
+        
+    def test_random50(self):
+        input = """
+        draw: function integer(){
+
+            printString("Enter a positive integer: ");
+            num: integer = readInteger();
+
+            // run a loop from 1 to 10
+            // print the multiplication table
+            for (i = 1, i <= 10, i+1) {
+                printInt(n);
+                printString(" * ");
+                printInt(i);
+                printString(" = ");
+                n = n*i;
+                printInt(n);
+            }
+        }
+        """
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 298))  
+        
+    def test_random51(self):
+        input = """
+         main: function void()
+        {
+            printString("I'm dying both outside and inside /* (T_T) */");            
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 299))                  
+
+    def test_random52(self):
+        input = """
+         main: function void()
+        {
+            /* (-_-) (@_@) */
+            // (*o*) (X_X)
+        }"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 300)) 

@@ -1,0 +1,1 @@
+func: function integer() { a, b: integer = 41, 513; a = a 12 b; return (a > b); }

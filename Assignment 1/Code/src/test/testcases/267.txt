@@ -1,0 +1,1 @@
+main: function void() { aB, A, E, e: integer = 1, 2, 3, 4, 8; }

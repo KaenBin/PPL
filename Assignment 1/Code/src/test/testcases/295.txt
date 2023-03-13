@@ -1,0 +1,5 @@
+
+         main: function void()
+        {
+            sentence: string = "Visual Studio Code is the best IDE";
+        }

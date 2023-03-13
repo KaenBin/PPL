@@ -1,0 +1,5 @@
+
+         main: function void()
+        {
+            printString("I'm dying both outside and inside /* (T_T) */");            
+        }

@@ -1,0 +1,8 @@
+
+         main: function void()
+        {
+            for(i = 0, i < 4, i + 2) 
+            {
+                printInteger(readInteger());
+            }
+        }
