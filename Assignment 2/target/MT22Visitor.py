@@ -24,6 +24,11 @@ class MT22Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by MT22Parser#vardecl_type.
+    def visitVardecl_type(self, ctx:MT22Parser.Vardecl_typeContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by MT22Parser#vardecl1.
     def visitVardecl1(self, ctx:MT22Parser.Vardecl1Context):
         return self.visitChildren(ctx)
@@ -39,18 +44,13 @@ class MT22Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by MT22Parser#vardecl2_2.
-    def visitVardecl2_2(self, ctx:MT22Parser.Vardecl2_2Context):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by MT22Parser#vardecl3.
     def visitVardecl3(self, ctx:MT22Parser.Vardecl3Context):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by MT22Parser#vardecl3_2.
-    def visitVardecl3_2(self, ctx:MT22Parser.Vardecl3_2Context):
+    # Visit a parse tree produced by MT22Parser#func_ids.
+    def visitFunc_ids(self, ctx:MT22Parser.Func_idsContext):
         return self.visitChildren(ctx)
 
 
@@ -154,11 +154,6 @@ class MT22Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by MT22Parser#call_list.
-    def visitCall_list(self, ctx:MT22Parser.Call_listContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by MT22Parser#block_stmt.
     def visitBlock_stmt(self, ctx:MT22Parser.Block_stmtContext):
         return self.visitChildren(ctx)
@@ -249,8 +244,8 @@ class MT22Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by MT22Parser#literals.
-    def visitLiterals(self, ctx:MT22Parser.LiteralsContext):
+    # Visit a parse tree produced by MT22Parser#atom_type.
+    def visitAtom_type(self, ctx:MT22Parser.Atom_typeContext):
         return self.visitChildren(ctx)
 
 

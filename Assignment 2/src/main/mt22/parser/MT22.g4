@@ -10,27 +10,27 @@ options{
 	language=Python3;
 }
 
-program: (array_lit | vardecl | funcdecl | stmts | exp)+ EOF ;
+program: (array_type | array_lit | vardecl | funcdecl | stmts | exp)+ EOF ;
 
-var_type: INTEGER | FLOAT | BOOLEAN | STRING | VOID | AUTO | array_type;
+var_type: INTEGER | FLOAT | BOOLEAN | STRING;
 
 // Variable declarations
-vardecl: vardecl1 | vardecl2 | vardecl3;
+vardecl: (vardecl1 | vardecl2 | vardecl3) SEMI;
+vardecl_type: var_type | VOID | AUTO | array_type;
 
-vardecl1: id_list COLON var_type SEMI;
-id_list: ID (COMMA ID)* | ;
+vardecl1: id_list COLON vardecl_type;
+id_list: ID (COMMA ID)*;
 
-vardecl2: ID vardecl2_2 exp SEMI;
-vardecl2_2: (COMMA ID vardecl2_2 exp COMMA) | (COLON var_type ASSIGN);
+vardecl2: (ID COMMA vardecl2 COMMA exp) | (ID COLON vardecl_type ASSIGN exp);
 
-vardecl3: ID vardecl3_2 array_type SEMI;
-vardecl3_2: (COMMA ID vardecl3_2 array_type COMMA) | COLON;
+vardecl3: (ID COMMA vardecl3 COMMA array_type) | (ID COLON array_type);
 
 // Function declarations
-funcdecl: ID COLON FUNCTION var_type paradecl block_stmt ;	
+func_ids: ID | READINT | PRINTINT | READFLOAT | WRITEFLOAT | READBOOL | PRINTBOOL | READSTR | PRINTSTR | SUPERS | PREVENTDEF;
+funcdecl: ID COLON FUNCTION (var_type | VOID | AUTO) paradecl (INHERIT func_ids)? block_stmt;
 paradecl: LRB para_list RRB;
-para_list: para (COMMA para)* | ;
-para: INHIRIT? OUT? ID COLON var_type;
+para_list: (para (COMMA para)*) | ;
+para: INHERIT? OUT? ID COLON (var_type | VOID | AUTO);
 
 stmts_list: stmts | block_stmt | exp;
 stmts:assign_stmt 
@@ -44,13 +44,13 @@ stmts:assign_stmt
 	| call_stmt
 	| functions;
 
-assign_stmt: assign_lhs assign_stmt2 exp SEMI;
-assign_stmt2: (COMMA assign_lhs assign_stmt2 COMMA) | ASSIGN;
+assign_stmt: assign_stmt2 SEMI;
+assign_stmt2: (assign_lhs COMMA assign_stmt2 COMMA exp) | (assign_lhs ASSIGN exp);
 assign_lhs: ID | exp_ind;
 
 if_stmt: IF LRB exp RRB stmts_list (ELSE stmts_list)?;
 
-for_stmt: FOR LRB assign_lhs ASSIGN exp COMMA exp COMMA exp RRB stmts_list;
+for_stmt: FOR LRB assign_stmt2 COMMA expression_list COMMA expression_list RRB stmts_list;
 // for_stmt2: COMMA assign_lhs for_stmt2 COMMA | ASSIGN;
 
 while_stmt: WHILE LRB bool_expr RRB stmts_list;
@@ -61,13 +61,12 @@ break_stmt: BREAK SEMI;
 continue_stmt: CONT SEMI;
 return_stmt: RT exp? SEMI;
 
-call_stmt: ((ID call_body) | functions) SEMI;
+call_stmt: call_stmt_no_semi SEMI;
 call_stmt_no_semi: (ID call_body) | functions;
-call_body: LRB call_list RRB;
-call_list: exp (COMMA exp)* | ;
+call_body: LRB (exp (COMMA exp)* | ) RRB;
 
 block_stmt: LCB block_body RCB;
-block_body: (stmts | exp)*;
+block_body: (stmts | vardecl)*;
 
 // Expressions
 
@@ -85,14 +84,14 @@ exp4: exp4 (MULOP | DIVOP | MODOP) exp5 | exp5;
 exp5: NEGAOP exp5 | exp6;
 exp6: MINUSOP exp6 | exp7;
 exp7: operands | (LSB (expression_list | exp_ind) RSB);
-operands: literals | ID | call_stmt_no_semi | (LRB exp RRB);
+operands: atom_type | array_lit | ID | call_stmt_no_semi | (LRB exp RRB);
 
 // 4. Type system and values
-array_type: ARRAY LSB int_list RSB OF literals;
+array_type: ARRAY LSB int_list RSB OF (var_type | AUTO);
 int_list: INTLIT (COMMA INTLIT)* | ;
 
 // Literals
-literals: INTLIT | FLOATLIT | BOOL | STRINGLIT | VOID | AUTO;
+atom_type: INTLIT | FLOATLIT | BOOL | STRINGLIT; 
 
 array_lit: LCB expression_list RCB ;
 expression_list: exp (COMMA exp)* | ;
@@ -130,10 +129,10 @@ CONJOP: '&&';
 DISJOP: '||';
 EQUALOP: '==';
 DIFOP: '!='; 
-LESSOP: '<';
 LESSEQOP: '<=';
-GREATOP: '>';
+LESSOP: '<';
 GREATEQOP: '>=';
+GREATOP: '>';
 CONCAT: '::';
 
 // Keywords
@@ -146,7 +145,7 @@ OF: 'of';
 VOID: 'void';
 AUTO: 'auto';
 
-INHIRIT: 'inhirit';
+INHERIT: 'inherit';
 OUT: 'out';
 FUNCTION: 'function';
 

@@ -23,10 +23,10 @@ CONJOP=22
 DISJOP=23
 EQUALOP=24
 DIFOP=25
-LESSOP=26
-LESSEQOP=27
-GREATOP=28
-GREATEQOP=29
+LESSEQOP=26
+LESSOP=27
+GREATEQOP=28
+GREATOP=29
 CONCAT=30
 INTEGER=31
 FLOAT=32
@@ -36,7 +36,7 @@ ARRAY=35
 OF=36
 VOID=37
 AUTO=38
-INHIRIT=39
+INHERIT=39
 OUT=40
 FUNCTION=41
 IF=42
@@ -85,10 +85,10 @@ ILLEGAL_ESCAPE=66
 '||'=23
 '=='=24
 '!='=25
-'<'=26
-'<='=27
-'>'=28
-'>='=29
+'<='=26
+'<'=27
+'>='=28
+'>'=29
 '::'=30
 'integer'=31
 'float'=32
@@ -98,7 +98,7 @@ ILLEGAL_ESCAPE=66
 'of'=36
 'void'=37
 'auto'=38
-'inhirit'=39
+'inherit'=39
 'out'=40
 'function'=41
 'if'=42

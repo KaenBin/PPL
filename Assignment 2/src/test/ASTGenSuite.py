@@ -45,7 +45,20 @@ class ASTGenSuite(unittest.TestCase):
             printInteger(4);
         }"""
         expect = """Program([
-	FuncDecl(main, VoidType, [], None, BlockStmt([]))
+	FuncDecl(main, VoidType, [], None, BlockStmt([CallStmt(printInteger, IntegerLit(4))]))
 ])"""
         self.assertTrue(TestAST.test(input, expect, 304))
 
+    def test_double_program(self):
+        """More complex program"""
+        input = """
+            foo: function void (inherit a: integer, inherit out b: float) inherit bar {}
+
+            main: function void () {
+                printInteger(4);
+            }"""
+        expect = """Program([
+	FuncDecl(foo, VoidType, [InheritParam(a, IntegerType), InheritOutParam(b, FloatType)], bar, BlockStmt([]))
+	FuncDecl(main, VoidType, [], None, BlockStmt([CallStmt(printInteger, IntegerLit(4))]))
+])"""
+        self.assertTrue(TestAST.test(input, expect, 305))

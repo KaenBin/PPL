@@ -37,7 +37,7 @@ def serializedATN():
         buf.write("\3\16\3\17\3\17\3\20\3\20\3\21\3\21\3\22\3\22\3\23\3\23")
         buf.write("\3\24\3\24\3\25\3\25\3\26\3\26\3\27\3\27\3\30\3\30\3\31")
         buf.write("\3\31\3\32\3\32\3\33\3\33\3\33\3\34\3\34\3\34\3\35\3\35")
-        buf.write("\3\35\3\36\3\36\3\36\3\37\3\37\3 \3 \3 \3!\3!\3\"\3\"")
+        buf.write("\3\35\3\36\3\36\3\36\3\37\3\37\3\37\3 \3 \3!\3!\3!\3\"")
         buf.write("\3\"\3#\3#\3#\3$\3$\3$\3$\3$\3$\3$\3$\3%\3%\3%\3%\3%\3")
         buf.write("%\3&\3&\3&\3&\3&\3&\3&\3&\3\'\3\'\3\'\3\'\3\'\3\'\3\'")
         buf.write("\3(\3(\3(\3(\3(\3(\3)\3)\3)\3*\3*\3*\3*\3*\3+\3+\3+\3")
@@ -90,8 +90,8 @@ def serializedATN():
         buf.write("\3\2\2\2%\u00ef\3\2\2\2\'\u00f1\3\2\2\2)\u00f3\3\2\2\2")
         buf.write("+\u00f5\3\2\2\2-\u00f7\3\2\2\2/\u00f9\3\2\2\2\61\u00fb")
         buf.write("\3\2\2\2\63\u00fd\3\2\2\2\65\u00ff\3\2\2\2\67\u0102\3")
-        buf.write("\2\2\29\u0105\3\2\2\2;\u0108\3\2\2\2=\u010b\3\2\2\2?\u010d")
-        buf.write("\3\2\2\2A\u0110\3\2\2\2C\u0112\3\2\2\2E\u0115\3\2\2\2")
+        buf.write("\2\2\29\u0105\3\2\2\2;\u0108\3\2\2\2=\u010b\3\2\2\2?\u010e")
+        buf.write("\3\2\2\2A\u0110\3\2\2\2C\u0113\3\2\2\2E\u0115\3\2\2\2")
         buf.write("G\u0118\3\2\2\2I\u0120\3\2\2\2K\u0126\3\2\2\2M\u012e\3")
         buf.write("\2\2\2O\u0135\3\2\2\2Q\u013b\3\2\2\2S\u013e\3\2\2\2U\u0143")
         buf.write("\3\2\2\2W\u0148\3\2\2\2Y\u0150\3\2\2\2[\u0154\3\2\2\2")
@@ -150,9 +150,9 @@ def serializedATN():
         buf.write("\7~\2\2\u0103\u0104\7~\2\2\u01048\3\2\2\2\u0105\u0106")
         buf.write("\7?\2\2\u0106\u0107\7?\2\2\u0107:\3\2\2\2\u0108\u0109")
         buf.write("\7#\2\2\u0109\u010a\7?\2\2\u010a<\3\2\2\2\u010b\u010c")
-        buf.write("\7>\2\2\u010c>\3\2\2\2\u010d\u010e\7>\2\2\u010e\u010f")
-        buf.write("\7?\2\2\u010f@\3\2\2\2\u0110\u0111\7@\2\2\u0111B\3\2\2")
-        buf.write("\2\u0112\u0113\7@\2\2\u0113\u0114\7?\2\2\u0114D\3\2\2")
+        buf.write("\7>\2\2\u010c\u010d\7?\2\2\u010d>\3\2\2\2\u010e\u010f")
+        buf.write("\7>\2\2\u010f@\3\2\2\2\u0110\u0111\7@\2\2\u0111\u0112")
+        buf.write("\7?\2\2\u0112B\3\2\2\2\u0113\u0114\7@\2\2\u0114D\3\2\2")
         buf.write("\2\u0115\u0116\7<\2\2\u0116\u0117\7<\2\2\u0117F\3\2\2")
         buf.write("\2\u0118\u0119\7k\2\2\u0119\u011a\7p\2\2\u011a\u011b\7")
         buf.write("v\2\2\u011b\u011c\7g\2\2\u011c\u011d\7i\2\2\u011d\u011e")
@@ -171,7 +171,7 @@ def serializedATN():
         buf.write("\7f\2\2\u0142T\3\2\2\2\u0143\u0144\7c\2\2\u0144\u0145")
         buf.write("\7w\2\2\u0145\u0146\7v\2\2\u0146\u0147\7q\2\2\u0147V\3")
         buf.write("\2\2\2\u0148\u0149\7k\2\2\u0149\u014a\7p\2\2\u014a\u014b")
-        buf.write("\7j\2\2\u014b\u014c\7k\2\2\u014c\u014d\7t\2\2\u014d\u014e")
+        buf.write("\7j\2\2\u014b\u014c\7g\2\2\u014c\u014d\7t\2\2\u014d\u014e")
         buf.write("\7k\2\2\u014e\u014f\7v\2\2\u014fX\3\2\2\2\u0150\u0151")
         buf.write("\7q\2\2\u0151\u0152\7w\2\2\u0152\u0153\7v\2\2\u0153Z\3")
         buf.write("\2\2\2\u0154\u0155\7h\2\2\u0155\u0156\7w\2\2\u0156\u0157")
@@ -294,10 +294,10 @@ class MT22Lexer(Lexer):
     DISJOP = 23
     EQUALOP = 24
     DIFOP = 25
-    LESSOP = 26
-    LESSEQOP = 27
-    GREATOP = 28
-    GREATEQOP = 29
+    LESSEQOP = 26
+    LESSOP = 27
+    GREATEQOP = 28
+    GREATOP = 29
     CONCAT = 30
     INTEGER = 31
     FLOAT = 32
@@ -307,7 +307,7 @@ class MT22Lexer(Lexer):
     OF = 36
     VOID = 37
     AUTO = 38
-    INHIRIT = 39
+    INHERIT = 39
     OUT = 40
     FUNCTION = 41
     IF = 42
@@ -343,9 +343,9 @@ class MT22Lexer(Lexer):
     literalNames = [ "<INVALID>",
             "'['", "']'", "'('", "')'", "'{'", "'}'", "'.'", "','", "';'", 
             "':'", "'='", "'+'", "'-'", "'*'", "'/'", "'%'", "'!'", "'&&'", 
-            "'||'", "'=='", "'!='", "'<'", "'<='", "'>'", "'>='", "'::'", 
+            "'||'", "'=='", "'!='", "'<='", "'<'", "'>='", "'>'", "'::'", 
             "'integer'", "'float'", "'boolean'", "'string'", "'array'", 
-            "'of'", "'void'", "'auto'", "'inhirit'", "'out'", "'function'", 
+            "'of'", "'void'", "'auto'", "'inherit'", "'out'", "'function'", 
             "'if'", "'else'", "'for'", "'while'", "'do'", "'break'", "'continue'", 
             "'return'", "'readInteger'", "'printInteger'", "'readFloat'", 
             "'writeFloat'", "'readBoolean'", "'printBoolean'", "'readString'", 
@@ -355,9 +355,9 @@ class MT22Lexer(Lexer):
             "INTLIT", "FLOATLIT", "BOOL", "STRINGLIT", "LSB", "RSB", "LRB", 
             "RRB", "LCB", "RCB", "DOT", "COMMA", "SEMI", "COLON", "ASSIGN", 
             "ADDOP", "MINUSOP", "MULOP", "DIVOP", "MODOP", "NEGAOP", "CONJOP", 
-            "DISJOP", "EQUALOP", "DIFOP", "LESSOP", "LESSEQOP", "GREATOP", 
-            "GREATEQOP", "CONCAT", "INTEGER", "FLOAT", "BOOLEAN", "STRING", 
-            "ARRAY", "OF", "VOID", "AUTO", "INHIRIT", "OUT", "FUNCTION", 
+            "DISJOP", "EQUALOP", "DIFOP", "LESSEQOP", "LESSOP", "GREATEQOP", 
+            "GREATOP", "CONCAT", "INTEGER", "FLOAT", "BOOLEAN", "STRING", 
+            "ARRAY", "OF", "VOID", "AUTO", "INHERIT", "OUT", "FUNCTION", 
             "IF", "ELSE", "FOR", "WHILE", "DO", "BREAK", "CONT", "RT", "READINT", 
             "PRINTINT", "READFLOAT", "WRITEFLOAT", "READBOOL", "PRINTBOOL", 
             "READSTR", "PRINTSTR", "SUPERS", "PREVENTDEF", "ID", "BLOCK_COMMENT", 
@@ -367,14 +367,14 @@ class MT22Lexer(Lexer):
                   "STR_CHAR", "ESC_SEQ", "LSB", "RSB", "LRB", "RRB", "LCB", 
                   "RCB", "DOT", "COMMA", "SEMI", "COLON", "ASSIGN", "ADDOP", 
                   "MINUSOP", "MULOP", "DIVOP", "MODOP", "NEGAOP", "CONJOP", 
-                  "DISJOP", "EQUALOP", "DIFOP", "LESSOP", "LESSEQOP", "GREATOP", 
-                  "GREATEQOP", "CONCAT", "INTEGER", "FLOAT", "BOOLEAN", 
-                  "STRING", "ARRAY", "OF", "VOID", "AUTO", "INHIRIT", "OUT", 
-                  "FUNCTION", "IF", "ELSE", "FOR", "WHILE", "DO", "BREAK", 
-                  "CONT", "RT", "READINT", "PRINTINT", "READFLOAT", "WRITEFLOAT", 
-                  "READBOOL", "PRINTBOOL", "READSTR", "PRINTSTR", "SUPERS", 
-                  "PREVENTDEF", "ID", "BLOCK_COMMENT", "LINE_COMMENT", "WS", 
-                  "ERROR_CHAR", "UNCLOSE_STRING", "ILLEGAL_ESCAPE", "ESC_ILLEGAL" ]
+                  "DISJOP", "EQUALOP", "DIFOP", "LESSEQOP", "LESSOP", "GREATEQOP", 
+                  "GREATOP", "CONCAT", "INTEGER", "FLOAT", "BOOLEAN", "STRING", 
+                  "ARRAY", "OF", "VOID", "AUTO", "INHERIT", "OUT", "FUNCTION", 
+                  "IF", "ELSE", "FOR", "WHILE", "DO", "BREAK", "CONT", "RT", 
+                  "READINT", "PRINTINT", "READFLOAT", "WRITEFLOAT", "READBOOL", 
+                  "PRINTBOOL", "READSTR", "PRINTSTR", "SUPERS", "PREVENTDEF", 
+                  "ID", "BLOCK_COMMENT", "LINE_COMMENT", "WS", "ERROR_CHAR", 
+                  "UNCLOSE_STRING", "ILLEGAL_ESCAPE", "ESC_ILLEGAL" ]
 
     grammarFileName = "MT22.g4"
 
