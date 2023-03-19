@@ -1,0 +1,4 @@
+Program([
+	FuncDecl(absMinus, IntegerType, [Param(a, IntegerType), Param(b, IntegerType)], None, BlockStmt([[<AST.IfStmt object at 0x000001bc9bb7ea70>]]))
+	FuncDecl(main, VoidType, [], None, BlockStmt([CallStmt(printInteger, CallStmt(absMinus, IntegerLit(4), IntegerLit(2)))]))
+])

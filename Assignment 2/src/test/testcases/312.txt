@@ -1,0 +1,4 @@
+main: function void () {
+            x: array [3] of integer;
+            x = {1, 2, 3};
+        }

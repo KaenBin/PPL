@@ -1,0 +1,4 @@
+
+        main: function void () {
+            _acawe8oimklnn_SDA_A__SFA_F_AS_VAS_: string = "Complex identifier";
+        }

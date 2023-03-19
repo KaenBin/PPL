@@ -1,0 +1,8 @@
+
+        main: function void () {
+            a: integer = 0;
+            for(i = 0, i < 6, i + 1) {
+                a = a + i;
+            }
+            printInteger(a);
+        }

@@ -1,0 +1,6 @@
+
+        main: function void () {
+            a: boolean = readBoolean();
+            if(!a) return false;
+            return true;
+        }

@@ -1,0 +1,9 @@
+
+        main: function void () {
+            input: array [3] of integer;
+            input[0] = readInteger();
+            input[1] = readInteger();
+            input[2] = readInteger();
+            sum: integer = input[0] + input[1] + input[2];
+            printInteger(sum);
+        }

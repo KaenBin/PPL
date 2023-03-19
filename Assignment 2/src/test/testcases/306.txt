@@ -1,0 +1,3 @@
+main: function void () {
+            printNumber(4, 5.0);
+        }

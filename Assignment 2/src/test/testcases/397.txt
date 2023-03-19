@@ -1,0 +1,4 @@
+
+        main: function void () {
+            _aca: integer = 43_4342_65476_123____151;
+        }

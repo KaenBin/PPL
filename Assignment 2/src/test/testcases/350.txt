@@ -1,0 +1,6 @@
+
+        main: function void () {
+            a_plus_b: integer;
+            a, b: integer = 10970918723479, 234868125816;
+            a_plus_b = a + b;
+        }

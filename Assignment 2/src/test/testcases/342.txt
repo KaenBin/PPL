@@ -1,0 +1,7 @@
+
+        div: function integer(a: integer, b: integer) {
+            return a / b;
+        }
+        main: function void () {
+            printInteger(div(4, 2));
+        }

@@ -1,0 +1,4 @@
+
+        main: function void () {
+            _aca: float = 43_43.42_65476_123____151;
+        }

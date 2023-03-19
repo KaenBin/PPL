@@ -1,0 +1,10 @@
+
+        getMax: function integer (a: integer, b: integer) {
+            if(a >= b) return a;
+            else return b;
+        }
+
+        main: function void () {
+            a = getMax(5, 40394092);
+            printInteger(a);
+        }

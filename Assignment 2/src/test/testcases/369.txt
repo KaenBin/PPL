@@ -1,0 +1,7 @@
+
+        main: function void () {
+            a: integer = readInteger();
+            b: integer = readInteger();
+            if(a % b == 0) printString("a divisible by b");
+            else printString("a not divisible by b");
+        }

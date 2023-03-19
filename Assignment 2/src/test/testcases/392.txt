@@ -1,0 +1,14 @@
+
+        main: function void () {
+            boolarr: array [5] of boolean;
+            boolarr[0] = readBoolean();
+            boolarr[1] = readBoolean();
+            boolarr[2] = readBoolean();
+            boolarr[3] = readBoolean();
+            boolarr[4] = readBoolean();
+            countTrue: integer = 0;
+            for(i = 0, i < 5, i + 1){
+                if(boolarr[i]) countTrue = countTrue + 1;
+            }
+            printInteger(countTrue);
+        }

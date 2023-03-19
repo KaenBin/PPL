@@ -1,0 +1,5 @@
+
+        main: function void () {
+            if(false) return false;
+            else return true;
+        }

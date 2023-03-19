@@ -1,0 +1,6 @@
+
+        main: function void () {
+            a: float = readFloat();
+            b: float = readFloat();
+            return a == b;
+        }

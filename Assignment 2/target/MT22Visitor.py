@@ -234,6 +234,11 @@ class MT22Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by MT22Parser#array_cell.
+    def visitArray_cell(self, ctx:MT22Parser.Array_cellContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by MT22Parser#array_type.
     def visitArray_type(self, ctx:MT22Parser.Array_typeContext):
         return self.visitChildren(ctx)

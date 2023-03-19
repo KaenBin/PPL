@@ -1,0 +1,9 @@
+
+        main: function void () {
+            a: integer = 8;
+            b: array [3] of integer;
+            for(i = 0, i < 3, i + 1){
+                b[i] = i + 8;
+            }
+            printInteger(b[2]);
+        }

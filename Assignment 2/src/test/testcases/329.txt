@@ -1,0 +1,4 @@
+
+        main: function void () {
+            a, b, c, d, e, f, g, h, y, i, k, l: integer;
+        }

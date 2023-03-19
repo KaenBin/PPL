@@ -1,0 +1,3 @@
+Program([
+	FuncDecl(main, VoidType, [], None, BlockStmt([[<AST.VarDecl object at 0x000001bc9bb12290>], [<AST.AssignStmt object at 0x000001bc9bc5c430>], [<AST.AssignStmt object at 0x000001bc9bc5ec50>], [<AST.AssignStmt object at 0x000001bc9bc5df90>], [<AST.VarDecl object at 0x000001bc9bc5c280>], CallStmt(printInteger, sum)]))
+])

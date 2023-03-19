@@ -1,0 +1,14 @@
+
+        main: function void () {
+            intarr: array [5] of integer;
+            intarr[0] = readInteger();
+            intarr[1] = readInteger();
+            intarr[2] = readInteger();
+            intarr[3] = readInteger();
+            intarr[4] = readInteger();
+            countNeg: integer = 0;
+            for(i = 0, i < 5, i + 1){
+                if(intarr[i] < 0) countNeg = countNeg + 1;
+            }
+            printInteger(countNeg);
+        }

@@ -1,0 +1,5 @@
+
+        main: function void () {
+            neg: integer = -15;
+            pos: integer = 15;
+        }

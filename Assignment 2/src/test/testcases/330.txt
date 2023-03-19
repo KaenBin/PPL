@@ -1,0 +1,5 @@
+
+        main: function void () {
+            a: float = 123e-123;
+            writeFloat(a);
+        }

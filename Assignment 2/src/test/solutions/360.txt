@@ -1,0 +1,9 @@
+Program([
+	VarDecl(a, IntegerType, IntegerLit(1))
+	VarDecl(b, IntegerType, IntegerLit(2))
+	VarDecl(c, IntegerType, IntegerLit(3))
+	VarDecl(d, IntegerType, IntegerLit(4))
+	VarDecl(e, IntegerType, IntegerLit(5))
+	VarDecl(f, IntegerType, IntegerLit(6))
+	FuncDecl(main, VoidType, [], None, BlockStmt([ReturnStmt(BinExpr(-, BinExpr(+, BinExpr(+, a, BinExpr(/, BinExpr(*, b, c), d)), e), f))]))
+])

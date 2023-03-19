@@ -1,0 +1,6 @@
+
+        a, b, c, d: integer = readInteger(), readInteger(), readInteger(), readInteger();
+        main: function void () {
+            if((a < b) && (c < d)) printString("b is bigger than a, d is bigger than c");
+            if((a > b) && (c > d)) printString("a is bigger than b, c is bigger than d");
+        }

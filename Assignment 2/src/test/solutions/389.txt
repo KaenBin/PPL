@@ -1,0 +1,3 @@
+Program([
+	FuncDecl(main, VoidType, [], None, BlockStmt([[<AST.VarDecl object at 0x000001bc9bc5dd50>], [<AST.AssignStmt object at 0x000001bc9bc5e950>], ForStmt([<AST.AssignStmt object at 0x000001bc9bc5e320>], [<AST.BinExpr object at 0x000001bc9bc5f880>], [<AST.BinExpr object at 0x000001bc9bc5c160>], BlockStmt([[<AST.IfStmt object at 0x000001bc9bc5f4c0>]]))]))
+])

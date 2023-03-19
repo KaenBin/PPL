@@ -1,0 +1,5 @@
+
+        a, b: integer = 10970918723479, 234868125816;
+        main: function void () {
+            printBoolean(a > b);
+        }

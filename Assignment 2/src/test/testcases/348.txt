@@ -1,0 +1,7 @@
+
+        main: function void () {
+            a: string = "Heelloo";
+            b: string = "HUNG";
+            a = a :: b;
+            printString(a);
+        }

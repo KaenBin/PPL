@@ -1,0 +1,5 @@
+
+        main: function void () {
+            boolarr: array [5] of boolean;
+            boolarr = {true, false, true, false, true};
+        }

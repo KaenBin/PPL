@@ -1,0 +1,8 @@
+
+        main: function void () {
+            boolarr: array [5] of boolean;
+            boolarr = {true, false, true, false, true};
+            for(i = 0, i < 5, i + 1){
+                if(boolarr[i]) printBoolean(boolarr[i]);
+            }
+        }

@@ -1,0 +1,7 @@
+
+        main: function void () {
+            input: array [3] of integer;
+            input[0] = readInteger();
+            input[1] = readInteger();
+            input[2] = readInteger();
+        }

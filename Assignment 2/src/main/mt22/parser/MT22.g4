@@ -48,7 +48,7 @@ assign_stmt: assign_stmt2 SEMI;
 assign_stmt2: (assign_lhs COMMA assign_stmt2 COMMA exp) | (assign_lhs ASSIGN exp);
 assign_lhs: ID | exp_ind;
 
-if_stmt: IF LRB exp RRB stmts_list (ELSE stmts_list)?;
+if_stmt: IF LRB exp RRB stmts (ELSE stmts)?;
 
 for_stmt: FOR LRB assign_stmt2 COMMA expression_list COMMA expression_list RRB stmts_list;
 // for_stmt2: COMMA assign_lhs for_stmt2 COMMA | ASSIGN;
@@ -84,10 +84,11 @@ exp4: exp4 (MULOP | DIVOP | MODOP) exp5 | exp5;
 exp5: NEGAOP exp5 | exp6;
 exp6: MINUSOP exp6 | exp7;
 exp7: operands | (LSB (expression_list | exp_ind) RSB);
-operands: atom_type | array_lit | ID | call_stmt_no_semi | (LRB exp RRB);
+operands: atom_type | array_lit | ID | call_stmt_no_semi | (LRB exp RRB) | array_cell;
 
+array_cell: ID LSB expression_list RSB;
 // 4. Type system and values
-array_type: ARRAY LSB int_list RSB OF (var_type | AUTO);
+array_type: ARRAY LSB expression_list RSB OF (var_type | AUTO);
 int_list: INTLIT (COMMA INTLIT)* | ;
 
 // Literals

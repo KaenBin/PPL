@@ -1,0 +1,4 @@
+
+        main: function void () {
+            cars: array [3] of string = {"Volvo", "BMX", "VinFast"};
+        }

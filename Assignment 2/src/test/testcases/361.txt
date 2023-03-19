@@ -1,0 +1,7 @@
+
+        main: function void () {
+            Hung_name: string = "Hung";
+            Hung_age: integer = 2023 - 2002;
+            printString(Hung_name);
+            printInteger(Hung_age);
+        }

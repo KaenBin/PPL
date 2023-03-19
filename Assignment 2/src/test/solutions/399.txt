@@ -1,0 +1,7 @@
+Program([
+	VarDecl(a, IntegerType, CallStmt(readInteger, ))
+	VarDecl(b, IntegerType, CallStmt(readInteger, ))
+	VarDecl(c, IntegerType, CallStmt(readInteger, ))
+	VarDecl(d, IntegerType, CallStmt(readInteger, ))
+	FuncDecl(main, VoidType, [], None, BlockStmt([[<AST.IfStmt object at 0x000001bc9bced630>], [<AST.IfStmt object at 0x000001bc9bcecf40>]]))
+])

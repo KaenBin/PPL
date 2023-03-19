@@ -1,0 +1,5 @@
+
+        main: function void () {
+            username: string = readString();
+            printString("Hello " :: username);
+        }

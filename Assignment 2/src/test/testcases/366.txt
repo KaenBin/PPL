@@ -1,0 +1,6 @@
+
+        main: function void () {
+            a: integer = readInteger();
+            b: integer = readInteger();
+            if(a > b) printString("a bigger than b");
+        }

@@ -1,0 +1,4 @@
+
+        main: function void () {
+            init_decl_expr: float = 3.14 + 1.2;
+        }

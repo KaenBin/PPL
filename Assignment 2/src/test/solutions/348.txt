@@ -1,0 +1,3 @@
+Program([
+	FuncDecl(main, VoidType, [], None, BlockStmt([[<AST.VarDecl object at 0x000001bc9b2fe080>], [<AST.VarDecl object at 0x000001bc9b2ff040>], [<AST.AssignStmt object at 0x000001bc9b2fe200>], CallStmt(printString, a)]))
+])

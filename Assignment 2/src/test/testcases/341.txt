@@ -1,0 +1,7 @@
+
+        mul: function integer(a: integer, b: integer) {
+            return a * b;
+        }
+        main: function void () {
+            printInteger(mul(4, 5));
+        }

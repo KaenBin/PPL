@@ -1,0 +1,6 @@
+
+        main: function void () {
+            a: float = 11e-11;
+            b: float = 12.12;
+            writeFloat(a + b);
+        }

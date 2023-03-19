@@ -1,0 +1,7 @@
+
+        main: function void () {
+            literal_int: integer = 10;
+            literal_float: float = 3.14;
+            literal_bool: boolean = false;
+            literal_string: string = "hello";
+        }
